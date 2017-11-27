@@ -1,188 +1,515 @@
 <!DOCTYPE html>
-<html>
+<html style="display: none;" lang="zh">
     <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Title -->
+    
     <title>
         
-        如何用Python快速撸出一个贴吧图片下载器 · Bigf00t&#39;s Blog
+            如何用Python快速撸出一个贴吧图片下载器 | 
         
+        Bigf00t&#39;s Blog
     </title>
-    <link rel="icon" href= /assests/favicon.ico>
-    <!-- TODO: 在font-face加载完毕后改变字体  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
-    <!-- 提前加载place holder  -->
-    <style type="text/css">
-        @font-face {
-            font-family: 'Oswald-Regular';
-            src: url(/font/Oswald-Regular.ttf);
-        }
-    </style>
-    <style type="text/css">
-        .site-intro-placeholder {
-            position: absolute;
-            z-index: -2;
-            top: 0;
-            left: 0px;
-            width: calc(100% + 300px);
-            height: 100%;
-            background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
-            background-position: center center;
-            transform: translate3d(-226px, 0, 0);
-            animation: gradient-move 2.5s ease-out 0s 1;
-        }
-        @keyframes gradient-move {
-        0% {
-            transform: translate3d(-226px, 0, 0);
-        }
-        100% {
-            transform: translate3d(0, 0, 0);
-        }
-    }
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Bigf00t">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",Python,贴吧,Image">
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Bigf00t&#39;s Blog">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
 </style>
-    <link rel="stylesheet" href = /css/style.css?v=20171020 />
-    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icon -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    <!-- Import jQuery -->
     
-    <script src="/scripts/main.js" defer></script>
-    <!-- 百度统计  -->
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
     
-    <!-- 谷歌统计  -->
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="如何用Python快速撸出一个贴吧图片下载器 | Bigf00t&#39;s Blog">
+    <meta property="og:image" content="http://yoursite.com/img/favicon.png" />
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="Python"> <meta property="og:article:tag" content="贴吧"> <meta property="og:article:tag" content="Image"> 
+
     
+        <meta property="article:published_time" content="Sat Apr 23 2016 17:11:43 GMT+0800" />
+        <meta property="article:modified_time" content="Mon Nov 27 2017 22:18:48 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="如何用Python快速撸出一个贴吧图片下载器 | Bigf00t&#39;s Blog">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://yoursite.com/img/favicon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://yoursite.com" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/index.html",
+    "headline": "如何用Python快速撸出一个贴吧图片下载器",
+    "datePublished": "Sat Apr 23 2016 17:11:43 GMT+0800",
+    "dateModified": "Mon Nov 27 2017 22:18:48 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Bigf00t",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Bigf00t&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Python,贴吧,Image",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
 </head>
-    
-        <body class="post-body">
-    
-    
-<header class="header">
 
-    <div class="header-sidebar-menu">&#xe775;</div>
-    <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >Bigf00t&#39;s Blog</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">如何用Python快速撸出一个贴吧图片下载器</a>
-            </div>
-    </div>
-    
-    <a class="home-link" href=/>Bigf00t's Blog</a>
-</header>
-    <div class="wrapper">
-        <div class="site-intro">
-    
-    <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
-            
-    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
-    <div class="site-intro-placeholder"></div>
-    <div class="site-intro-meta">
-        <!-- 标题  -->
-        <h1 class="intro-title">
-            <!-- 主页  -->
-            
-            如何用Python快速撸出一个贴吧图片下载器
-            <!-- 404 -->
-            
-        </h1>
-        <!-- 副标题 -->
-        <p class="intro-subtitle">
-            <!-- 主页副标题  -->
-            
-            
-            <!-- 404 -->
-            
-        </p>
-        <!-- 文章页meta -->
-        
-            <!-- 文章页标签  -->
-            
-                <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = Python>Python</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 贴吧>贴吧</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = Image>Image</a>
-    
-</div>
-            
-            <div class="post-intro-meta">
-                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2016/04/23</span>
-            </div>
-        
-    </div>
-</div>
-        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
-        <script>
-            var browser = {
-                    versions: function () {
-                        var u = window.navigator.userAgent;
-                        return {
-                            userAgent: u,
-                            trident: u.indexOf('Trident') > -1, //IE内核
-                            presto: u.indexOf('Presto') > -1, //opera内核
-                            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
-                            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
-                            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
-                            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-                            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
-                            iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
-                            iPad: u.indexOf('iPad') > -1, //是否为iPad
-                            webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
-                            weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
-                            uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
-                        };
-                    }()
-                }
 
-            function fontLoaded(){
-                console.log('font loaded');
-                if (document.getElementsByClassName('site-intro-meta')) {
-                    document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
-                    document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
-                    var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
-                        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
-                        if (postIntroTags) {
-                            postIntroTags.classList.add('post-fade-in');
-                        }
-                        if (postIntroMeat) {
-                            postIntroMeat.classList.add('post-fade-in');
-                        }
-                    }
-                }
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
                 
-            console.log("userAgent:" + browser.versions.userAgent);
-            // UC不支持跨域，所以直接显示
-            if (browser.versions.uc) {
-                console.log("UCBrowser");
-                fontLoaded();
-            } else {
-                WebFont.load({
-                    custom: {
-                        families: ['Oswald-Regular']
-                    },
-                    loading: function () {  //所有字体开始加载
-                        // console.log('loading');
-                    },
-                    active: function () {  //所有字体已渲染
-                        fontLoaded();
-                    },
-                    inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
-                        console.log('inactive: timeout');
-                        fontLoaded();
-                    },
-                    timeout: 7000 // Set the timeout to two seconds
-                });
-            }
-        </script>
-        <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用到的Python模块"><span class="post-toc-number">1.</span> <span class="post-toc-text">用到的Python模块</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原理的部分"><span class="post-toc-number">2.</span> <span class="post-toc-text">原理的部分</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#这里贴出部分代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">这里贴出部分代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#速度还不错"><span class="post-toc-number">4.</span> <span class="post-toc-text">速度还不错</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#END"><span class="post-toc-number">5.</span> <span class="post-toc-text">END</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                如何用Python快速撸出一个贴吧图片下载器
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Bigf00t</strong>
+        <span>4月 23, 2016</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEJklEQVR42u3aS3IiMRAFQO5/ac8BJoD3qhoHLadWDhsLKbVQffT4MYLxQIAJEyZMmDAZmDBhwvT1TI94RFP/9/ln//t6/mfzvP78s9/M9ogJEyZMmE5iSjbfLiKhTGbOV5WsttgjJkyYMGE6junZBp595qoZEsrZemYrxIQJEyZMmNo0tU1EZ+nuVQeJCRMmTJgwvcaaFXlzuOTAMGHChAkTplkBNGeaFXA3rdO2HPzBWjgmTJgwYfoypv2V/P0//+r7JkyYMGHC9DVM7Uge6LRl3/zY8mAlDyye7hQTJkyYMB3BlF+cM4jZxZx/+yYtf/N4CBMmTJgwHcS0SXQ3AUHe/twUcPNVYcKECROmv8C02VjCN2uati3SguNZUo0JEyZMmI5jSrY9K++2T3xe/29b6p0FH5gwYcKE6QymzVbbjSVX/mzOFiLZESZMmDBhOoMpb1i2qebseU3UaCxT4nZfmDBhwoTpPKY2sdyXdPMmZXuE+eOhN7NhwoQJE6YjmD5xYc/myZuRm1ZrkR5jwoQJE6bjmPKSaLuIDeumMRmluG1AgAkTJkyYbss0a3MOn8XEm8yDiVm6O4ybMGHChAnTTZjaJ6dtuHDVJmeHl5SAV11fTJgwYcJ0W6a8GZlft5sHN6urPfjMMCDAhAkTJkxfz5SUPpMy62yrVz21uXb9mDBhwoTpJKZZC3N/zW9ap3ljtT0kTJgwYcJ0HlNbAG0J2us8DzVmZeKifIwJEyZMmI5jai/mzzVBN23IfG3DgAATJkyYMN2K6bEYOUFbhL32qNoiMiZMmDBhOo8pX8SsiZiUgDct0rz4W/wVEyZMmDAdxNReq0lJtw0g2tJwXvZt58SECRMmTOcxzcqj7V/z7c1CkIt3hAkTJkyYDmLKU9a2eLrZ8Ky9ukm/MWHChAnTqUw/i7GZoU1QkzBic/CYMGHChOmvMbXpblFCHc2WU+YJ8AUBASZMmDBhuglTspQ8Ed0/r8mLxau2ZdvOxIQJEyZMt2JKSp/1VRo82ZkVkduScV7OfhMQYMKECROm2zLNnrzMPr8PO9oG6iZYwYQJEyZMZzC1m9k/Np0ltG1bdHM8mDBhwoTpPKYkFZxBtM9rkjR1Vt5t25yYMGHChOkMpv1WE/S2sLthzed/44AJEyZMmI5gmj2y+US7MW+FbtLgvECMCRMmTJjOYNo8msnLtbOAIyGYBRbRd2HChAkTpoOY2tbm7JLOL+zNQbYBQf1EFRMmTJgw3ZapLbbO2pxt8NE+KrrsWzBhwoQJE6ZRUjoLMmZl3/w4fzUgwIQJEyZMX8+U0OQXdr6Sq5LkaH5MmDBhwnQcU36t5sHBjCn53jywyL8REyZMmDCdynTttZ2XUzeJd15uniXemDBhwoTpDCYjCggMTJgwYcKECZOBCROmbxn/ALfrkNBmz4+uAAAAAElFTkSuQmCC">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Image/">Image</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Python/">Python</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/贴吧/">贴吧</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=如何用Python快速撸出一个贴吧图片下载器&url=http://yoursite.com/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=如何用Python快速撸出一个贴吧图片下载器&url=http://yoursite.com/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/index.html&via=Bigf00t" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
         <p>这是一篇关于自己写贴吧图片下载器的总结。<br>　<br>起初是室友说要做一个贴吧的信息收集爬虫，于是打算先从简单一点的开始，先做一个贴吧的图片下载吧，之后再把获取图片改成获取背的内容不就好了嘛😄，然后就开始写了这个爬虫。现在这个Python脚本主要用到了下面的一些东西。
 　    </p>
 <h3 id="用到的Python模块"><a href="#用到的Python模块" class="headerlink" title="用到的Python模块"></a>用到的Python模块</h3><ul>
@@ -194,289 +521,477 @@
 <li>OptionParser（很方便的命令行参数配置工具）</li>
 <li>threadpool（一个菊苣写的Python线程池实现）</li>
 </ul>
-<h3 id="原理的部分"><a href="#原理的部分" class="headerlink" title="原理的部分"></a>原理的部分</h3><p>其实思路很简单，随便找一个帖子，比如这个<a href="http://tieba.baidu.com/p/2545680017" target="_blank" rel="noopener">http://tieba.baidu.com/p/2545680017</a>，这是一个图楼，然后就需要分析页面的HTM代码内容，我用的是Chrome浏览器，那就右键选择一个楼层的图片，<code>审查元素</code>，然后发现HTML代码中是这样写的：<br>　<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"BDE_Image"</span> <span class="attr">src</span>=<span class="string">"http://imgsrc.baidu.com/forum/w%3D580/sign=198d73cadc54564ee565e43183dc9cde/857f1f1f95cad1c8f75fb3fe7e3e6709c83d5130.jpg"</span> <span class="attr">pic_ext</span>=<span class="string">"jpeg"</span> <span class="attr">width</span>=<span class="string">"550"</span> <span class="attr">height</span>=<span class="string">"600"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="原理的部分"><a href="#原理的部分" class="headerlink" title="原理的部分"></a>原理的部分</h3><p>其实思路很简单，随便找一个帖子，比如这个<a href="http://tieba.baidu.com/p/2545680017" target="_blank" rel="noopener">http://tieba.baidu.com/p/2545680017</a>，这是一个图楼，然后就需要分析页面的HTM代码内容，我用的是Chrome浏览器，那就右键选择一个楼层的图片，<code>审查元素</code>，然后发现HTML代码中是这样写的：
+　    </p>
+<pre><code class="HTML">&lt;img class=&quot;BDE_Image&quot; src=&quot;http://imgsrc.baidu.com/forum/w%3D580/sign=198d73cadc54564ee565e43183dc9cde/857f1f1f95cad1c8f75fb3fe7e3e6709c83d5130.jpg&quot; pic_ext=&quot;jpeg&quot; width=&quot;550&quot; height=&quot;600&quot;&gt;
+</code></pre>
 <p>　<br>可以看到里面<code>src</code>部分直接是图片的地址，再观察楼层图片和其他无关紧要的图片（比如层主头像、签名档）的写法区别，发现楼层图片都会有一个<code>BDE_Image</code>class，那么这就好办了，等会直接筛选出来就好。</p>
-<p>然后翻到帖子的第二页，发现URL变成了<a href="http://tieba.baidu.com/p/2545680017?pn=2" target="_blank" rel="noopener">http://tieba.baidu.com/p/2545680017?pn=2</a>，多了一个<code>?pn=2</code>，这个<code>pn</code>参数也就表示了当前查看的页数位置，那么我们只需要知道帖子总共有多少页，对<code>pn</code>做一个遍历就可以获得一个帖子中所有页面了，现在需要知道怎么获取帖子的总页面数。直接来到帖子的最底部，看到了这样的内容<code>62回复贴，共3页</code>，对应的HTML代码为：<br>　<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"l_reply_num"</span> <span class="attr">style</span>=<span class="string">"margin-left:8px"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"red"</span> <span class="attr">style</span>=<span class="string">"margin-right:3px"</span>&gt;</span>62<span class="tag">&lt;/<span class="name">span</span>&gt;</span>回复贴，共<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"red"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">span</span>&gt;</span>页<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>然后翻到帖子的第二页，发现URL变成了<a href="http://tieba.baidu.com/p/2545680017?pn=2" target="_blank" rel="noopener">http://tieba.baidu.com/p/2545680017?pn=2</a>，多了一个<code>?pn=2</code>，这个<code>pn</code>参数也就表示了当前查看的页数位置，那么我们只需要知道帖子总共有多少页，对<code>pn</code>做一个遍历就可以获得一个帖子中所有页面了，现在需要知道怎么获取帖子的总页面数。直接来到帖子的最底部，看到了这样的内容<code>62回复贴，共3页</code>，对应的HTML代码为：
+　    </p>
+<pre><code class="HTML">&lt;li class=&quot;l_reply_num&quot; style=&quot;margin-left:8px&quot;&gt;&lt;span class=&quot;red&quot; style=&quot;margin-right:3px&quot;&gt;62&lt;/span&gt;回复贴，共&lt;span class=&quot;red&quot;&gt;3&lt;/span&gt;页&lt;/li&gt;
+</code></pre>
 <p>　<br>特征很明显，有一个叫做<code>l_reply_num</code>的class，总回帖数和总页数都各用一个sapn标签包起来了，等会直接过滤出来就可以。</p>
 <p>现在对网页部分的分析算是结束了，到了代码实现的部分了。</p>
-<h3 id="这里贴出部分代码"><a href="#这里贴出部分代码" class="headerlink" title="这里贴出部分代码"></a>这里贴出部分代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用requests模块直接获取网页的HTML内容</span></span><br><span class="line">getparams = &#123;<span class="string">'pn'</span>: <span class="number">1</span>&#125;</span><br><span class="line">result_ = requests.get(<span class="string">'http://tieba.baidu.com/p/2545680017?'</span>, params=getparams).content</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用BeautifulSoup模块做HTML内容的分析，获取总页数</span></span><br><span class="line">soup = BeautifulSoup(result_, <span class="string">'lxml'</span>)</span><br><span class="line">page_list = soup.find(<span class="string">'li'</span>, attrs=&#123;<span class="string">'class'</span>: <span class="string">'l_reply_num'</span>&#125;)</span><br><span class="line">max_page_number = int(page_list.contents[<span class="number">2</span>].string)  <span class="comment"># 总页数</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在pn处做一个遍历，获取到帖子的所有页面</span></span><br><span class="line"><span class="keyword">for</span> pageNum <span class="keyword">in</span> range(start, end):</span><br><span class="line">    getparams = &#123;<span class="string">'pn'</span>: pageNum&#125;</span><br><span class="line">    html_cont = requests.get(self.pURL, params=getparams).content</span><br><span class="line">    soup = BeautifulSoup(html_cont, <span class="string">'lxml'</span>)</span><br><span class="line">    <span class="comment"># 用BeautifulSoup模块做HTML内容的分析，获取到所有楼层图片的下载地址</span></span><br><span class="line">    <span class="comment"># 并发送到下载队列</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> soup.findAll(<span class="string">'img'</span>, attrs=&#123;<span class="string">'class'</span>: <span class="string">"BDE_Image"</span>&#125;):</span><br><span class="line">        srcurl = item.get(<span class="string">'src'</span>)  <span class="comment"># 图片地址</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self._is_Exit:</span><br><span class="line">            self.downloader.add_task(srcurl)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载器里用threadpool模块做多线程的并发下载，这样速度比单线程快很多</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_task</span><span class="params">(self, url)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> self.lock:</span><br><span class="line">        self._is_alive = <span class="keyword">True</span></span><br><span class="line">    reqs = threadpool.makeRequests(self._download, [url, ], self._callback)</span><br><span class="line">    [self.threadPool.putRequest(req, timeout=<span class="number">1</span>) <span class="keyword">for</span> req <span class="keyword">in</span> reqs]</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 直接用requests模块完成图片的下载，并保存到文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_download</span><span class="params">(self, url)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> self.is_alive():</span><br><span class="line">        r = requests.request(<span class="string">'GET'</span>, url)</span><br><span class="line">        <span class="keyword">if</span> r:</span><br><span class="line">            filename = os.path.join(self.save_directory, os.path.basename(url))  <span class="comment"># 拼接文件名</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(filename):</span><br><span class="line">                <span class="keyword">with</span> open(filename, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">                    f.write(r.content)  <span class="comment"># 保存图片</span></span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br></pre></td></tr></table></figure>
+<h3 id="这里贴出部分代码"><a href="#这里贴出部分代码" class="headerlink" title="这里贴出部分代码"></a>这里贴出部分代码</h3><pre><code class="Python"># 用requests模块直接获取网页的HTML内容
+getparams = {&#39;pn&#39;: 1}
+result_ = requests.get(&#39;http://tieba.baidu.com/p/2545680017?&#39;, params=getparams).content
+</code></pre>
+<pre><code class="Python"># 用BeautifulSoup模块做HTML内容的分析，获取总页数
+soup = BeautifulSoup(result_, &#39;lxml&#39;)
+page_list = soup.find(&#39;li&#39;, attrs={&#39;class&#39;: &#39;l_reply_num&#39;})
+max_page_number = int(page_list.contents[2].string)  # 总页数
+</code></pre>
+<pre><code class="Python"># 在pn处做一个遍历，获取到帖子的所有页面
+for pageNum in range(start, end):
+    getparams = {&#39;pn&#39;: pageNum}
+    html_cont = requests.get(self.pURL, params=getparams).content
+    soup = BeautifulSoup(html_cont, &#39;lxml&#39;)
+    # 用BeautifulSoup模块做HTML内容的分析，获取到所有楼层图片的下载地址
+    # 并发送到下载队列
+    for item in soup.findAll(&#39;img&#39;, attrs={&#39;class&#39;: &quot;BDE_Image&quot;}):
+        srcurl = item.get(&#39;src&#39;)  # 图片地址
+        if not self._is_Exit:
+            self.downloader.add_task(srcurl)
+</code></pre>
+<pre><code class="Python"># 下载器里用threadpool模块做多线程的并发下载，这样速度比单线程快很多
+def add_task(self, url):
+    with self.lock:
+        self._is_alive = True
+    reqs = threadpool.makeRequests(self._download, [url, ], self._callback)
+    [self.threadPool.putRequest(req, timeout=1) for req in reqs]
+</code></pre>
+<pre><code class="Python"># 直接用requests模块完成图片的下载，并保存到文件
+def _download(self, url):
+    if self.is_alive():
+        r = requests.request(&#39;GET&#39;, url)
+        if r:
+            filename = os.path.join(self.save_directory, os.path.basename(url))  # 拼接文件名
+            if not os.path.exists(filename):
+                with open(filename, &#39;wb&#39;) as f:
+                    f.write(r.content)  # 保存图片
+                return 1
+            else:
+                return -1
+    else:
+        return None
+</code></pre>
 <h3 id="速度还不错"><a href="#速度还不错" class="headerlink" title="速度还不错"></a>速度还不错</h3><p>　<br><img src="/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/tiebaImageGet-010.png" title="resImghere"></p>
 <h3 id="END"><a href="#END" class="headerlink" title="END"></a>END</h3><p>到这里其实关键的部分也就结束了，剩下的一些微小的工作，比如输出统计结果（下了多少图，用了多少时间，支持设置保存目录。。。），各位看官感兴趣的话可以直接去我的Github上看源码。</p>
 <p>Github <a href="https://github.com/zhaohui8969/tiebaImageGet" target="_blank" rel="noopener">https://github.com/zhaohui8969/tiebaImageGet</a></p>
 
-    </article>
-    <!-- 前后页  -->
-    <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2016/11/22/2016-11-22-终端下来自FBI的问候/" title= 终端下来自FBI的问候 >
-                    <span>Next Post</span>
-                    <span>终端下来自FBI的问候</span>
-                </a>
-            </li>
-        
-        
-            <li class="previous">
-                <a href= "/2016/02/23/2016-02-23-在OSX上用automator实现VPN断线自动重连/" title= 在OSX上用automator实现VPN断线自动重连 >
-                    <span>Previous Post</span>
-                    <span>在OSX上用automator实现VPN断线自动重连</span>
-                </a>
-            </li>
-        
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!--PC版-->
-
-    <!--PC版-->
-
 
     
-</main>
-            <!-- profile -->
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2016/11/22/2016-11-22-终端下来自FBI的问候/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2016/02/23/2016-02-23-在OSX上用automator实现VPN断线自动重连/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Bigf00t's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        youremail@email.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/04/">四月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2015&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Bigf00t's Blog
             
         </div>
-        <footer class="footer footer-unloaded">
-    <!-- social  -->
-    
-    <div class="social">
-        
-    
-        
-            
-                <a href="mailto:natas_hw@163.com" class="iconfont-archer email" title=email ></a>
-            
-        
-    
-        
-            
-                <a href="//github.com/zhaohui8969" class="iconfont-archer github" target="_blank" title="github"></a>
-            
-        
-    
-        
-    
 
-    </div>
-    
-    <!-- powered by Hexo  -->
-    <div class="copyright">
-        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
-    </div>
-    <!-- 不蒜子  -->
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
     
 </footer>
-    </div>
-    <!-- toc -->
-    
-    <div class="toc-wrapper">
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#用到的Python模块"><span class="toc-number">1.</span> <span class="toc-text">用到的Python模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原理的部分"><span class="toc-number">2.</span> <span class="toc-text">原理的部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#这里贴出部分代码"><span class="toc-number">3.</span> <span class="toc-text">这里贴出部分代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#速度还不错"><span class="toc-number">4.</span> <span class="toc-text">速度还不错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#END"><span class="toc-number">5.</span> <span class="toc-text">END</span></a></li></ol>
-    </div>
-    
-    <div class="back-top">&#xe639;</div>
-    <div class="sidebar">
-    <div class="sidebar-header sidebar-header-show-archive">
-        <div class="sidebar-category">
-            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
-            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
-        </div>
-    </div>
-    <div class="sidebar-content sidebar-content-show-archive">
-          <div class="sidebar-archive">
-    <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="total-archive"> Total : 6 </div>
-    
-    <div class="post-archive">
-    
-    
-    
-    
-    <div class="archive-year"> 2017 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/27</span><a class="archive-post-title" href= "/2017/11/27/readme/" >[Untitled Post]</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/03</span><a class="archive-post-title" href= "/2017/01/03/2017-01-03-python用队列实现多线程间的通信/" >python用队列实现多线程间的通信</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2016 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/28</span><a class="archive-post-title" href= "/2016/12/28/2016-12-28-用supervisor来管理tcptun的多个策略/" >用supervisor来管理tcptun的多个策略</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/22</span><a class="archive-post-title" href= "/2016/11/22/2016-11-22-终端下来自FBI的问候/" >终端下来自FBI的问候</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/23</span><a class="archive-post-title" href= "/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/" >如何用Python快速撸出一个贴吧图片下载器</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2016/02/23/2016-02-23-在OSX上用automator实现VPN断线自动重连/" >在OSX上用automator实现VPN断线自动重连</a>
-        </li>
-    
-    </div>
-  </div>
-        <div class="sidebar-tags">
-    <div class="sidebar-tags-name">
-    
-        <span class="sidebar-tag-name"><a href= "#">Automator</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">OSX</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">Python</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">贴吧</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">Image</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">恶搞</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">bash</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">Linux</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">supervisor</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">tcptun</a></span>
-    
-    </div>
-    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
-    缺失模块。<br/>
-    1、请确保node版本大于6.2<br/>
-    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
-    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
-    3、在根目录_config.yml里添加配置：
-    <pre style="color: #888; font-size: 0.6rem;">
-jsonContent:
-  meta: false
-  pages: false
-  posts:
-    title: true
-    date: true
-    path: true
-    text: false
-    raw: false
-    content: false
-    slug: false
-    updated: false
-    comments: false
-    link: false
-    permalink: false
-    excerpt: false
-    categories: false
-    tags: true</pre>
-    </div> 
-    <div class="sidebar-tag-list"></div>
-</div>
-    </div>
-</div> 
-    <script>
-    var jsInfo = {
-        root: '/'
-    }
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
 </script>
-    <!-- 不蒜子  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
     
-    <!-- CNZZ统计  -->
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
     
-    </div>
-    </body>
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
 </html>
-
-
