@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title>
+        
+        如何用Python快速撸出一个贴吧图片下载器 · Bigf00t&#39;s Blog
+        
+    </title>
+    <link rel="icon" href= /assests/favicon.ico>
+    <!-- TODO: 在font-face加载完毕后改变字体  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+    <!-- 提前加载place holder  -->
+    <style type="text/css">
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url(/font/Oswald-Regular.ttf);
+        }
+    </style>
+    <style type="text/css">
+        .site-intro-placeholder {
+            position: absolute;
+            z-index: -2;
+            top: 0;
+            left: 0px;
+            width: calc(100% + 300px);
+            height: 100%;
+            background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+            background-position: center center;
+            transform: translate3d(-226px, 0, 0);
+            animation: gradient-move 2.5s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+    <link rel="stylesheet" href = /css/style.css?v=20171020 />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Bigf00t&#39;s Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">如何用Python快速撸出一个贴吧图片下载器</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Bigf00t's Blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            如何用Python快速撸出一个贴吧图片下载器
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Python>Python</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 贴吧>贴吧</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Image>Image</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2016/04/23</span>
+            </div>
+        
+    </div>
+</div>
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <script>
+            var browser = {
+                    versions: function () {
+                        var u = window.navigator.userAgent;
+                        return {
+                            userAgent: u,
+                            trident: u.indexOf('Trident') > -1, //IE内核
+                            presto: u.indexOf('Presto') > -1, //opera内核
+                            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                            iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+                            iPad: u.indexOf('iPad') > -1, //是否为iPad
+                            webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+                            weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+                            uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+                        };
+                    }()
+                }
+
+            function fontLoaded(){
+                console.log('font loaded');
+                if (document.getElementsByClassName('site-intro-meta')) {
+                    document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+                    document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+                    var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
+                        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
+                        if (postIntroTags) {
+                            postIntroTags.classList.add('post-fade-in');
+                        }
+                        if (postIntroMeat) {
+                            postIntroMeat.classList.add('post-fade-in');
+                        }
+                    }
+                }
+                
+            console.log("userAgent:" + browser.versions.userAgent);
+            // UC不支持跨域，所以直接显示
+            if (browser.versions.uc) {
+                console.log("UCBrowser");
+                fontLoaded();
+            } else {
+                WebFont.load({
+                    custom: {
+                        families: ['Oswald-Regular']
+                    },
+                    loading: function () {  //所有字体开始加载
+                        // console.log('loading');
+                    },
+                    active: function () {  //所有字体已渲染
+                        fontLoaded();
+                    },
+                    inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+                        console.log('inactive: timeout');
+                        fontLoaded();
+                    },
+                    timeout: 7000 // Set the timeout to two seconds
+                });
+            }
+        </script>
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>这是一篇关于自己写贴吧图片下载器的总结。<br>　<br>起初是室友说要做一个贴吧的信息收集爬虫，于是打算先从简单一点的开始，先做一个贴吧的图片下载吧，之后再把获取图片改成获取背的内容不就好了嘛😄，然后就开始写了这个爬虫。现在这个Python脚本主要用到了下面的一些东西。
+　    </p>
+<h3 id="用到的Python模块"><a href="#用到的Python模块" class="headerlink" title="用到的Python模块"></a>用到的Python模块</h3><ul>
+<li>requests（Python下的HTTP客户端实现）</li>
+<li>BeautifulSoup（一个很方便的html语法分析工具）</li>
+<li>colorama（在控制台输出彩色的</li>
+<li>threading（我用到了多线程的一些东西）</li>
+<li>signal（Python下和信号相关的东西）</li>
+<li>OptionParser（很方便的命令行参数配置工具）</li>
+<li>threadpool（一个菊苣写的Python线程池实现）</li>
+</ul>
+<h3 id="原理的部分"><a href="#原理的部分" class="headerlink" title="原理的部分"></a>原理的部分</h3><p>其实思路很简单，随便找一个帖子，比如这个<a href="http://tieba.baidu.com/p/2545680017" target="_blank" rel="noopener">http://tieba.baidu.com/p/2545680017</a>，这是一个图楼，然后就需要分析页面的HTM代码内容，我用的是Chrome浏览器，那就右键选择一个楼层的图片，<code>审查元素</code>，然后发现HTML代码中是这样写的：<br>　<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"BDE_Image"</span> <span class="attr">src</span>=<span class="string">"http://imgsrc.baidu.com/forum/w%3D580/sign=198d73cadc54564ee565e43183dc9cde/857f1f1f95cad1c8f75fb3fe7e3e6709c83d5130.jpg"</span> <span class="attr">pic_ext</span>=<span class="string">"jpeg"</span> <span class="attr">width</span>=<span class="string">"550"</span> <span class="attr">height</span>=<span class="string">"600"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>　<br>可以看到里面<code>src</code>部分直接是图片的地址，再观察楼层图片和其他无关紧要的图片（比如层主头像、签名档）的写法区别，发现楼层图片都会有一个<code>BDE_Image</code>class，那么这就好办了，等会直接筛选出来就好。</p>
+<p>然后翻到帖子的第二页，发现URL变成了<a href="http://tieba.baidu.com/p/2545680017?pn=2" target="_blank" rel="noopener">http://tieba.baidu.com/p/2545680017?pn=2</a>，多了一个<code>?pn=2</code>，这个<code>pn</code>参数也就表示了当前查看的页数位置，那么我们只需要知道帖子总共有多少页，对<code>pn</code>做一个遍历就可以获得一个帖子中所有页面了，现在需要知道怎么获取帖子的总页面数。直接来到帖子的最底部，看到了这样的内容<code>62回复贴，共3页</code>，对应的HTML代码为：<br>　<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"l_reply_num"</span> <span class="attr">style</span>=<span class="string">"margin-left:8px"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"red"</span> <span class="attr">style</span>=<span class="string">"margin-right:3px"</span>&gt;</span>62<span class="tag">&lt;/<span class="name">span</span>&gt;</span>回复贴，共<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"red"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">span</span>&gt;</span>页<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>　<br>特征很明显，有一个叫做<code>l_reply_num</code>的class，总回帖数和总页数都各用一个sapn标签包起来了，等会直接过滤出来就可以。</p>
+<p>现在对网页部分的分析算是结束了，到了代码实现的部分了。</p>
+<h3 id="这里贴出部分代码"><a href="#这里贴出部分代码" class="headerlink" title="这里贴出部分代码"></a>这里贴出部分代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用requests模块直接获取网页的HTML内容</span></span><br><span class="line">getparams = &#123;<span class="string">'pn'</span>: <span class="number">1</span>&#125;</span><br><span class="line">result_ = requests.get(<span class="string">'http://tieba.baidu.com/p/2545680017?'</span>, params=getparams).content</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用BeautifulSoup模块做HTML内容的分析，获取总页数</span></span><br><span class="line">soup = BeautifulSoup(result_, <span class="string">'lxml'</span>)</span><br><span class="line">page_list = soup.find(<span class="string">'li'</span>, attrs=&#123;<span class="string">'class'</span>: <span class="string">'l_reply_num'</span>&#125;)</span><br><span class="line">max_page_number = int(page_list.contents[<span class="number">2</span>].string)  <span class="comment"># 总页数</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在pn处做一个遍历，获取到帖子的所有页面</span></span><br><span class="line"><span class="keyword">for</span> pageNum <span class="keyword">in</span> range(start, end):</span><br><span class="line">    getparams = &#123;<span class="string">'pn'</span>: pageNum&#125;</span><br><span class="line">    html_cont = requests.get(self.pURL, params=getparams).content</span><br><span class="line">    soup = BeautifulSoup(html_cont, <span class="string">'lxml'</span>)</span><br><span class="line">    <span class="comment"># 用BeautifulSoup模块做HTML内容的分析，获取到所有楼层图片的下载地址</span></span><br><span class="line">    <span class="comment"># 并发送到下载队列</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> soup.findAll(<span class="string">'img'</span>, attrs=&#123;<span class="string">'class'</span>: <span class="string">"BDE_Image"</span>&#125;):</span><br><span class="line">        srcurl = item.get(<span class="string">'src'</span>)  <span class="comment"># 图片地址</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self._is_Exit:</span><br><span class="line">            self.downloader.add_task(srcurl)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载器里用threadpool模块做多线程的并发下载，这样速度比单线程快很多</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_task</span><span class="params">(self, url)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> self.lock:</span><br><span class="line">        self._is_alive = <span class="keyword">True</span></span><br><span class="line">    reqs = threadpool.makeRequests(self._download, [url, ], self._callback)</span><br><span class="line">    [self.threadPool.putRequest(req, timeout=<span class="number">1</span>) <span class="keyword">for</span> req <span class="keyword">in</span> reqs]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 直接用requests模块完成图片的下载，并保存到文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_download</span><span class="params">(self, url)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> self.is_alive():</span><br><span class="line">        r = requests.request(<span class="string">'GET'</span>, url)</span><br><span class="line">        <span class="keyword">if</span> r:</span><br><span class="line">            filename = os.path.join(self.save_directory, os.path.basename(url))  <span class="comment"># 拼接文件名</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(filename):</span><br><span class="line">                <span class="keyword">with</span> open(filename, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">                    f.write(r.content)  <span class="comment"># 保存图片</span></span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br></pre></td></tr></table></figure>
+<h3 id="速度还不错"><a href="#速度还不错" class="headerlink" title="速度还不错"></a>速度还不错</h3><p>　<br><img src="/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/tiebaImageGet-010.png" title="resImghere"></p>
+<h3 id="END"><a href="#END" class="headerlink" title="END"></a>END</h3><p>到这里其实关键的部分也就结束了，剩下的一些微小的工作，比如输出统计结果（下了多少图，用了多少时间，支持设置保存目录。。。），各位看官感兴趣的话可以直接去我的Github上看源码。</p>
+<p>Github <a href="https://github.com/zhaohui8969/tiebaImageGet" target="_blank" rel="noopener">https://github.com/zhaohui8969/tiebaImageGet</a></p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2016/11/22/2016-11-22-终端下来自FBI的问候/" title= 终端下来自FBI的问候 >
+                    <span>Next Post</span>
+                    <span>终端下来自FBI的问候</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2016/02/23/2016-02-23-在OSX上用automator实现VPN断线自动重连/" title= 在OSX上用automator实现VPN断线自动重连 >
+                    <span>Previous Post</span>
+                    <span>在OSX上用automator实现VPN断线自动重连</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:natas_hw@163.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/zhaohui8969" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#用到的Python模块"><span class="toc-number">1.</span> <span class="toc-text">用到的Python模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原理的部分"><span class="toc-number">2.</span> <span class="toc-text">原理的部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#这里贴出部分代码"><span class="toc-number">3.</span> <span class="toc-text">这里贴出部分代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#速度还不错"><span class="toc-number">4.</span> <span class="toc-text">速度还不错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#END"><span class="toc-number">5.</span> <span class="toc-text">END</span></a></li></ol>
+    </div>
+    
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header sidebar-header-show-archive">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 6 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/27</span><a class="archive-post-title" href= "/2017/11/27/readme/" >[Untitled Post]</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/03</span><a class="archive-post-title" href= "/2017/01/03/2017-01-03-python用队列实现多线程间的通信/" >python用队列实现多线程间的通信</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2016 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/28</span><a class="archive-post-title" href= "/2016/12/28/2016-12-28-用supervisor来管理tcptun的多个策略/" >用supervisor来管理tcptun的多个策略</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/22</span><a class="archive-post-title" href= "/2016/11/22/2016-11-22-终端下来自FBI的问候/" >终端下来自FBI的问候</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/23</span><a class="archive-post-title" href= "/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/" >如何用Python快速撸出一个贴吧图片下载器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2016/02/23/2016-02-23-在OSX上用automator实现VPN断线自动重连/" >在OSX上用automator实现VPN断线自动重连</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">Automator</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">OSX</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Python</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">贴吧</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Image</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">恶搞</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">bash</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Linux</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">supervisor</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">tcptun</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #888; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+
