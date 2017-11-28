@@ -3,14 +3,6 @@
   
     
     <entry>
-      <title></title>
-      <url>/2017/11/27/readme/</url>
-      <content type="html"></content>
-      
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[python用队列实现多线程间的通信]]></title>
       <url>/2017/01/03/2017-01-03-python%E7%94%A8%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
       <content type="html"><![CDATA[<p>在写Python网络爬虫的时候，因为网络延迟的问题，单线程的爬虫效率往往不尽人意，最简单的办法是使用多线程，并发地去发送请求，多线程间的通信也是挺有意思的，下面是自己写的一段练习的代码</p>
