@@ -37,7 +37,7 @@
     
     <title>
         
-            如何用Python快速撸出一个贴吧图片下载器 | 
+            2017-11-28-Vue的多套环境发布脚本 | 
         
         Bigf00t&#39;s Blog
     </title>
@@ -49,7 +49,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Bigf00t">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",Python,贴吧,Image">
+    <meta name="keywords" content=",Vue,nodejs,Bash,前端">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -236,18 +236,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://blog.bigf00t.net">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="如何用Python快速撸出一个贴吧图片下载器 | Bigf00t&#39;s Blog">
+    <meta property="og:title" content="2017-11-28-Vue的多套环境发布脚本 | Bigf00t&#39;s Blog">
     <meta property="og:image" content="https://blog.bigf00t.net/img/favicon.png" />
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="Python"> <meta property="og:article:tag" content="贴吧"> <meta property="og:article:tag" content="Image"> 
+    <meta property="og:article:tag" content="Vue"> <meta property="og:article:tag" content="nodejs"> <meta property="og:article:tag" content="Bash"> <meta property="og:article:tag" content="前端"> 
 
     
-        <meta property="article:published_time" content="Sat Apr 23 2016 17:11:43 GMT+0800" />
-        <meta property="article:modified_time" content="Mon Nov 27 2017 22:18:48 GMT+0800" />
+        <meta property="article:published_time" content="Tue Nov 28 2017 14:31:30 GMT+0800" />
+        <meta property="article:modified_time" content="Tue Nov 28 2017 14:32:13 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="如何用Python快速撸出一个贴吧图片下载器 | Bigf00t&#39;s Blog">
+    <meta name="twitter:title" content="2017-11-28-Vue的多套环境发布脚本 | Bigf00t&#39;s Blog">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="https://blog.bigf00t.net/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -255,7 +255,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://blog.bigf00t.net/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/index.html" />
+        <link rel="canonical" href="https://blog.bigf00t.net/2017/11/28/2017-11-28-Vue的多套环境发布脚本/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -267,10 +267,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://blog.bigf00t.net/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/index.html",
-    "headline": "如何用Python快速撸出一个贴吧图片下载器",
-    "datePublished": "Sat Apr 23 2016 17:11:43 GMT+0800",
-    "dateModified": "Mon Nov 27 2017 22:18:48 GMT+0800",
+    "mainEntityOfPage": "https://blog.bigf00t.net/2017/11/28/2017-11-28-Vue的多套环境发布脚本/index.html",
+    "headline": "2017-11-28-Vue的多套环境发布脚本",
+    "datePublished": "Tue Nov 28 2017 14:31:30 GMT+0800",
+    "dateModified": "Tue Nov 28 2017 14:32:13 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Bigf00t",
@@ -288,7 +288,7 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",Python,贴吧,Image",
+    "keywords": ",Vue,nodejs,Bash,前端",
     "description": "",
 }
 </script>
@@ -354,7 +354,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用到的Python模块"><span class="post-toc-number">1.</span> <span class="post-toc-text">用到的Python模块</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原理的部分"><span class="post-toc-number">2.</span> <span class="post-toc-text">原理的部分</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#这里贴出部分代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">这里贴出部分代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#速度还不错"><span class="post-toc-number">4.</span> <span class="post-toc-text">速度还不错</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#END"><span class="post-toc-number">5.</span> <span class="post-toc-text">END</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#需求来源"><span class="post-toc-number">1.</span> <span class="post-toc-text">需求来源</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在Vue项目里具体的实现"><span class="post-toc-number">2.</span> <span class="post-toc-text">在Vue项目里具体的实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文件列表"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">文件列表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#build-for-test-sh"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">build_for_test.sh</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#conf-prod-env-js"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">conf/prod.env.js</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#src-api-api-js"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">src/api/api.js</span></a></li></ol></li></ol></li></ol>
     </ul>
     
 
@@ -386,7 +386,7 @@
         
     
             <p class="article-headline-p">
-                如何用Python快速撸出一个贴吧图片下载器
+                2017-11-28-Vue的多套环境发布脚本
             </p>
         </div>
 
@@ -405,7 +405,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Bigf00t</strong>
-        <span>4月 23, 2016</span>
+        <span>11月 28, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -427,7 +427,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEK0lEQVR42u3aS3IiMRAFQO5/ac8BHDDvVTUOWqRWE3ho1KmF6vf4sYL1QIAJEyZMmDBZmDBhwvTxTI94/f7W7yc8e+az7/5noy+f/OyT1zss3hETJkyYMB3ElGx39kr5yySvlOxwdjCYMGHChOkbmJ5ta3bZt0/LmZK/bnaFCRMmTJgwJVtJQof84s9/cXbMmDBhwoQJ0z7JbC/+WWEXEyZMmDBh2hRA2+ZlC9pe/O3x/FEtHBMmTJgwfRhTno7e999/Ot+ECRMmTJg+hqld+TBNMpqTDADlIz4/ly5MmDBhwnQG06zwmmw0KQfnv9Xuef9bmDBhwoTpDKZNI3AzKroJBa4NaIrUFxMmTJgw3ZYpbzHmQUB7YSet06Sl2oYsT98aEyZMmDAdwdSmkbMLeHZJt1izEOeyCgEmTJgwYbotUz6W2rYqk4S5bZHODj6ab8KECRMmTDdnapPhWal3lnIn3LOCclTkxYQJEyZMt2XKk89ZKLAZ+tmM/sxCGUyYMGHCdCrTpqmZM7XHcFUxNw9NMGHChAnTeUz58M3rl2/DhX0AMUuw8+9iwoQJE6bzmNoEOBmFydPavBk5O6S6RYoJEyZMmA5imm10dsFvCrh5kbdNqjFhwoQJ09lMyTWZbH125edXe/6t2Z4xYcKECdN5TDnHfjhmE2S0DcsL9okJEyZMmI5gSlLTtt2YX9552zIv2ubBCiZMmDBh+h6mTXo5G5Fp+fIg5qrfwoQJEyZMZzDlLcbZK+UX8FXEs+djwoQJE6ZTmWbDOrPrdlMsvnbYKDpgTJgwYcJ0BFNbJH3H6MzsGNqic/scTJgwYcJ0BlP+kpvUNAeaHVgeUhRJPiZMmDBhOoJpExC0yWfekizGa8qjSoIJTJgwYcJ0KtMFhdHRCE7baGyPuR08woQJEyZM5zFtrt780m2f0DY4iwLurBaOCRMmTJhuyNSO17T/pw0UZsFH/uQiMcaECRMmTEcwtQFB1AhcNC/z4u8msIh2iwkTJkyYjmB6lCsBaou5bes0L/VuwghMmDBhwnQG07WpYzvM+vr5bco9G5MtauGYMGHChOnmTO2mZ1d+8vkmVU4+iY4NEyZMmDAdxJSno7PXztuZber7WKy31MIxYcKECdOHMc3alpvW5uY1NqXhvE2LCRMmTJhOYmrXrK3YjtHkZej8tWs+TJgwYcJ0BFN7PecF1iRNfV1QnpWSk+dHR4IJEyZMmA5ialub7UW+ubDzi7wtUtcBASZMmDBhujlTe2HXDcK3PWfW2hzWwjFhwoQJ09cztddzHgrMEuxZAIEJEyZMmL6ZqW1YtkXbpHk5o0waopgwYcKE6VSmfFwmIbsqUMh/K9nDH7UzMWHChAnThzFt0sWrRnyKF4jLxy0cJkyYMGE6j8mKAgILEyZMmDBhwmRhwoTpU9Y/YaFczBovgNkAAAAASUVORK5CYII=">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADi0lEQVR42u3aS7LbMAwEQN//0sk2VYn9ZgDSdqpaKy8kkWwtYHwev1x/XA8EOHDgwIEDBw4cOHB8Mccjvv6+/9kb/rHkk6de7yF5dnMWHDhw4MBxj+OHUPRyc8n97Xbzw2zOggMHDhw4bnO8DnWvf7cbysnaZ/Oz4MCBAweOb+CYhdv8qO39OHDgwIHjf+dIind5eG5DdVJGxIEDBw4c38OxKbolDaG8cTUrAn6gVooDBw4cOA4NNHzz7w/Md+DAgQMHjvWVl/bykuJsXC//E/D0LDhw4MCB4yhH0uzZb7FN0tqnktJk8b8DBw4cOHAsOJJWUN4umrWsks+QrDILujhw4MCB4z0ceXjLRxnadlTbTMrHJnDgwIEDx22O9hV5AbEdcZgF5g0uDhw4cOA4y9GW82ZFujwxSz7PLKDiwIEDB473cMzSpGgELSgXztLCJNXMV8eBAwcOHGc58gDWBsK2lZUPKMwKmk/XwoEDBw4cRznagYBNgyeHa99/ZVQOBw4cOHAcGsLeB93kze0Yd5681akpDhw4cOA4ypEH0eTOPODVzaGgFDg8Cw4cOHDguMaRJz9tIJzd036G/MKBAwcOHPc4Zs2b9jD70YfkAwzLnThw4MCB440cSXq2b0HlQG1LKVoLBw4cOHAc5dhfLWie1CUFwf1fARw4cODAcZYjT5/aQuGN1K4dpMCBAwcOHJ/laLfYBst20zc+SZTR4sCBAweONcemOPj6bW1QnxUQkwAfjcrhwIEDB45DHPvErKXMQ2mOnq+CAwcOHDjucSQL5ME4T+qSYDxL5OpiIg4cOHDguMyRbKsOZvFAw2xvbajGgQMHDhz3OKIHDmHlobENqO3OceDAgQPHbY7i4ZigfX879JCH2x92iAMHDhw4LnDUBbVFWXB27E2Yx4EDBw4cn+JIlpxdmxGKPIi24xQ4cODAgeM9HJthtdmQxOzDtB9pWCvFgQMHDhwlR53wHBpTa4fn2uQtSURx4MCBA8cNjk2gSkbfZu88Fc5x4MCBA8enOGZDCfn4Wpt05cE4/xj1fAcOHDhw4FhzzJaPliwTtv39eQsKBw4cOHB8G0cSmPMEbJM0DpNAHDhw4MDxUY7XQbQNfm2La8NazHfgwIEDB45DHEnoylGS4DdrL23eiQMHDhw43sNxqhW0H4CbhflZqokDBw4cOG5wuHDgwIEDBw4cOHDgwPFl129l7RDxLVc1qQAAAABJRU5ErkJggg==">
     
 </ul>
 
@@ -441,7 +441,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Image/">Image</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Python/">Python</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/贴吧/">贴吧</a>
+        <a class="post_tag-link" href="/tags/Bash/">Bash</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Vue/">Vue</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/nodejs/">nodejs</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/前端/">前端</a>
     </ul>
     
 
@@ -458,7 +458,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=如何用Python快速撸出一个贴吧图片下载器&url=https://blog.bigf00t.net/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/index.html&pic=https://blog.bigf00t.net/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=2017-11-28-Vue的多套环境发布脚本&url=https://blog.bigf00t.net/2017/11/28/2017-11-28-Vue的多套环境发布脚本/index.html&pic=https://blog.bigf00t.net/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -467,7 +467,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=如何用Python快速撸出一个贴吧图片下载器&url=https://blog.bigf00t.net/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/index.html&via=Bigf00t" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=2017-11-28-Vue的多套环境发布脚本&url=https://blog.bigf00t.net/2017/11/28/2017-11-28-Vue的多套环境发布脚本/index.html&via=Bigf00t" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -476,7 +476,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.bigf00t.net/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.bigf00t.net/2017/11/28/2017-11-28-Vue的多套环境发布脚本/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -485,7 +485,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://blog.bigf00t.net/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://blog.bigf00t.net/2017/11/28/2017-11-28-Vue的多套环境发布脚本/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -494,7 +494,7 @@
 
     <!-- Share LinkedIn -->
     
-        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://blog.bigf00t.net/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/index.html&title=如何用Python快速撸出一个贴吧图片下载器" target="_blank">
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://blog.bigf00t.net/2017/11/28/2017-11-28-Vue的多套环境发布脚本/index.html&title=2017-11-28-Vue的多套环境发布脚本" target="_blank">
             <li class="mdl-menu__item">
                 分享到 LinkedIn
             </li>
@@ -503,7 +503,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Bigf00t&#39;s Blog&title=如何用Python快速撸出一个贴吧图片下载器&summary=&pics=https://blog.bigf00t.net/img/favicon.png&url=https://blog.bigf00t.net/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Bigf00t&#39;s Blog&title=2017-11-28-Vue的多套环境发布脚本&summary=&pics=https://blog.bigf00t.net/img/favicon.png&url=https://blog.bigf00t.net/2017/11/28/2017-11-28-Vue的多套环境发布脚本/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -512,7 +512,7 @@
 
     <!-- Share Telegram -->
     
-        <a class="post_share-link" href="https://telegram.me/share/url?url=https://blog.bigf00t.net/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/index.html&text=如何用Python快速撸出一个贴吧图片下载器" target="_blank">
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://blog.bigf00t.net/2017/11/28/2017-11-28-Vue的多套环境发布脚本/index.html&text=2017-11-28-Vue的多套环境发布脚本" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Telegram
             </li>
@@ -528,74 +528,58 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>这是一篇关于自己写贴吧图片下载器的总结。<br>　<br>起初是室友说要做一个贴吧的信息收集爬虫，于是打算先从简单一点的开始，先做一个贴吧的图片下载吧，之后再把获取图片改成获取背的内容不就好了嘛😄，然后就开始写了这个爬虫。现在这个Python脚本主要用到了下面的一些东西。
-　    </p>
-<h3 id="用到的Python模块"><a href="#用到的Python模块" class="headerlink" title="用到的Python模块"></a>用到的Python模块</h3><ul>
-<li>requests（Python下的HTTP客户端实现）</li>
-<li>BeautifulSoup（一个很方便的html语法分析工具）</li>
-<li>colorama（在控制台输出彩色的</li>
-<li>threading（我用到了多线程的一些东西）</li>
-<li>signal（Python下和信号相关的东西）</li>
-<li>OptionParser（很方便的命令行参数配置工具）</li>
-<li>threadpool（一个菊苣写的Python线程池实现）</li>
+        <h2 id="需求来源"><a href="#需求来源" class="headerlink" title="需求来源"></a>需求来源</h2><p>项目需要部署多套环境来发布（测试、生产），对于项目而言目前只有代码中后台接口地址不同，要求项目在build的时候能根据需要build成不同后台接口的版本去发布，目前咱在项目里用到的是一种最简单的办法，针对不同的build需求，写不同的build脚本，以达到build出不同版本的目的。</p>
+<h2 id="在Vue项目里具体的实现"><a href="#在Vue项目里具体的实现" class="headerlink" title="在Vue项目里具体的实现"></a>在Vue项目里具体的实现</h2><p>Vue项目用过<code>package.json</code>这个文件来定义一组npm脚本：</p>
+<pre><code class="Json">&quot;scripts&quot;: {
+  &quot;dev&quot;: &quot;node build/dev-server.js&quot;,
+  &quot;start&quot;: &quot;node build/dev-server.js&quot;,
+  &quot;build&quot;: &quot;node build/build.js&quot;,
+  &quot;unit&quot;: &quot;cross-env BABEL_ENV=test karma startest/unit/karma.conf.js --single-run&quot;,
+  &quot;e2e&quot;: &quot;node test/e2e/runner.js&quot;,
+  &quot;test&quot;: &quot;npm run unit &amp;&amp; npm run e2e&quot;,
+  &quot;lint&quot;: &quot;eslint --ext .js,.vue srtest/unit/specs test/e2e/specs&quot;
+},
+</code></pre>
+<p>该<code>scripts</code>字段定义了7个脚本，可以通过<code>npm run build</code>的方式来运行<code>node build/build.js</code>这个部分，nodejs支持从环境变量中读取指定变量的值，关于这点在node命令行下也可以直接体现，通过<code>process.env</code>可以得到类似如下的结果：</p>
+<pre><code>╰$ node
+&gt; process.env
+{ 
+  COLORFGBG: &#39;15;0&#39;,
+  ITERM_PROFILE: &#39;natas&#39;,
+  XPC_FLAGS: &#39;0x0&#39;,
+  LANG: &#39;zh_CN.UTF-8&#39;,
+  SHELL: &#39;/bin/zsh&#39;
+}
+</code></pre><p>那么开头提到的需求的具体的实现就很简单了，在bash脚本里设置环境变量，在build脚本运行时读取环境变量的值作为build运行时的值，build出符合需求的版本。</p>
+<p>具体的代码如下</p>
+<h3 id="文件列表"><a href="#文件列表" class="headerlink" title="文件列表"></a>文件列表</h3><ul>
+<li>build_for_test.sh</li>
+<li>conf/prod.env.js</li>
+<li>src/api/api.js</li>
 </ul>
-<h3 id="原理的部分"><a href="#原理的部分" class="headerlink" title="原理的部分"></a>原理的部分</h3><p>其实思路很简单，随便找一个帖子，比如这个<a href="http://tieba.baidu.com/p/2545680017" target="_blank" rel="noopener">http://tieba.baidu.com/p/2545680017</a>，这是一个图楼，然后就需要分析页面的HTM代码内容，我用的是Chrome浏览器，那就右键选择一个楼层的图片，<code>审查元素</code>，然后发现HTML代码中是这样写的：
-　    </p>
-<pre><code class="HTML">&lt;img class=&quot;BDE_Image&quot; src=&quot;http://imgsrc.baidu.com/forum/w%3D580/sign=198d73cadc54564ee565e43183dc9cde/857f1f1f95cad1c8f75fb3fe7e3e6709c83d5130.jpg&quot; pic_ext=&quot;jpeg&quot; width=&quot;550&quot; height=&quot;600&quot;&gt;
+<h4 id="build-for-test-sh"><a href="#build-for-test-sh" class="headerlink" title="build_for_test.sh"></a>build_for_test.sh</h4><pre><code>#!/bin/bash
+mkdir nginx_web
+# set nodeJs ENV
+export NODE_ENV_API_ROOT=&quot;http://x.x.x.x:8000/panelApi/v1&quot;
+export NODE_ENV_NAME=&quot;test&quot;
+
+echo &quot;Build for test env&quot;
+echo &quot;NODE_ENV_API_ROOT=&quot;${NODE_ENV_API_ROOT}
+echo &quot;NODE_ENV_NAME=&quot;${NODE_ENV_NAME}
+
+# re build
+npm run build &amp;&amp; cp -R dist/* nginx_web/ &amp;&amp; chmod -R 755 nginx_web
+</code></pre><h4 id="conf-prod-env-js"><a href="#conf-prod-env-js" class="headerlink" title="conf/prod.env.js"></a>conf/prod.env.js</h4><pre><code class="nodejs">exports.exports = {
+  NODE_ENV: &#39;&quot;&#39; + process.env.NODE_ENV_NAME + &#39;&quot;&#39;,
+  API_ROOT: &#39;&quot;&#39; + process.env.NODE_ENV_API_ROOT + &#39;&quot;&#39;
+}
 </code></pre>
-<p>　<br>可以看到里面<code>src</code>部分直接是图片的地址，再观察楼层图片和其他无关紧要的图片（比如层主头像、签名档）的写法区别，发现楼层图片都会有一个<code>BDE_Image</code>class，那么这就好办了，等会直接筛选出来就好。</p>
-<p>然后翻到帖子的第二页，发现URL变成了<a href="http://tieba.baidu.com/p/2545680017?pn=2" target="_blank" rel="noopener">http://tieba.baidu.com/p/2545680017?pn=2</a>，多了一个<code>?pn=2</code>，这个<code>pn</code>参数也就表示了当前查看的页数位置，那么我们只需要知道帖子总共有多少页，对<code>pn</code>做一个遍历就可以获得一个帖子中所有页面了，现在需要知道怎么获取帖子的总页面数。直接来到帖子的最底部，看到了这样的内容<code>62回复贴，共3页</code>，对应的HTML代码为：
-　    </p>
-<pre><code class="HTML">&lt;li class=&quot;l_reply_num&quot; style=&quot;margin-left:8px&quot;&gt;&lt;span class=&quot;red&quot; style=&quot;margin-right:3px&quot;&gt;62&lt;/span&gt;回复贴，共&lt;span class=&quot;red&quot;&gt;3&lt;/span&gt;页&lt;/li&gt;
-</code></pre>
-<p>　<br>特征很明显，有一个叫做<code>l_reply_num</code>的class，总回帖数和总页数都各用一个sapn标签包起来了，等会直接过滤出来就可以。</p>
-<p>现在对网页部分的分析算是结束了，到了代码实现的部分了。</p>
-<h3 id="这里贴出部分代码"><a href="#这里贴出部分代码" class="headerlink" title="这里贴出部分代码"></a>这里贴出部分代码</h3><pre><code class="Python"># 用requests模块直接获取网页的HTML内容
-getparams = {&#39;pn&#39;: 1}
-result_ = requests.get(&#39;http://tieba.baidu.com/p/2545680017?&#39;, params=getparams).content
-</code></pre>
-<pre><code class="Python"># 用BeautifulSoup模块做HTML内容的分析，获取总页数
-soup = BeautifulSoup(result_, &#39;lxml&#39;)
-page_list = soup.find(&#39;li&#39;, attrs={&#39;class&#39;: &#39;l_reply_num&#39;})
-max_page_number = int(page_list.contents[2].string)  # 总页数
-</code></pre>
-<pre><code class="Python"># 在pn处做一个遍历，获取到帖子的所有页面
-for pageNum in range(start, end):
-    getparams = {&#39;pn&#39;: pageNum}
-    html_cont = requests.get(self.pURL, params=getparams).content
-    soup = BeautifulSoup(html_cont, &#39;lxml&#39;)
-    # 用BeautifulSoup模块做HTML内容的分析，获取到所有楼层图片的下载地址
-    # 并发送到下载队列
-    for item in soup.findAll(&#39;img&#39;, attrs={&#39;class&#39;: &quot;BDE_Image&quot;}):
-        srcurl = item.get(&#39;src&#39;)  # 图片地址
-        if not self._is_Exit:
-            self.downloader.add_task(srcurl)
-</code></pre>
-<pre><code class="Python"># 下载器里用threadpool模块做多线程的并发下载，这样速度比单线程快很多
-def add_task(self, url):
-    with self.lock:
-        self._is_alive = True
-    reqs = threadpool.makeRequests(self._download, [url, ], self._callback)
-    [self.threadPool.putRequest(req, timeout=1) for req in reqs]
-</code></pre>
-<pre><code class="Python"># 直接用requests模块完成图片的下载，并保存到文件
-def _download(self, url):
-    if self.is_alive():
-        r = requests.request(&#39;GET&#39;, url)
-        if r:
-            filename = os.path.join(self.save_directory, os.path.basename(url))  # 拼接文件名
-            if not os.path.exists(filename):
-                with open(filename, &#39;wb&#39;) as f:
-                    f.write(r.content)  # 保存图片
-                return 1
-            else:
-                return -1
-    else:
-        return None
-</code></pre>
-<h3 id="速度还不错"><a href="#速度还不错" class="headerlink" title="速度还不错"></a>速度还不错</h3><p>　<br><img src="/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/tiebaImageGet-010.png" title="resImghere"></p>
-<h3 id="END"><a href="#END" class="headerlink" title="END"></a>END</h3><p>到这里其实关键的部分也就结束了，剩下的一些微小的工作，比如输出统计结果（下了多少图，用了多少时间，支持设置保存目录。。。），各位看官感兴趣的话可以直接去我的Github上看源码。</p>
-<p>Github <a href="https://github.com/zhaohui8969/tiebaImageGet" target="_blank" rel="noopener">https://github.com/zhaohui8969/tiebaImageGet</a></p>
+<h4 id="src-api-api-js"><a href="#src-api-api-js" class="headerlink" title="src/api/api.js"></a>src/api/api.js</h4><pre><code>let baseUrl = process.env.API_ROOT
+console.log(&#39;baseUrl&#39;, baseUrl)
+export let axiosIns = axios.create({
+  baseURL: baseUrl
+})
+</code></pre><p>这样一来，在运行<code>build_for_test.sh</code>时，环境变量<code>NODE_ENV_API_ROOT</code>被设置为期望的值，在build的过程中，<code>require(&#39;conf/prod.env.js&#39;)</code>时可以从<code>process.env.NODE_ENV_API_ROOT</code>中获取到环境变量的值，build完成后发布的版本中，<code>src/api/api.js</code>文件里的<code>baseUrl</code>值便可以从<code>process.env.API_ROOT</code>中获取到。</p>
 
         
     
@@ -614,8 +598,8 @@ def _download(self, url):
     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'https://blog.bigf00t.net/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://blog.bigf00t.net/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://blog.bigf00t.net/2017/11/28/2017-11-28-Vue的多套环境发布脚本/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://blog.bigf00t.net/2017/11/28/2017-11-28-Vue的多套环境发布脚本/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 <script type="text/ls-javascript" id="disqus-thread-script">
@@ -645,21 +629,13 @@ def _download(self, url):
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2016/11/22/2016-11-22-终端下来自FBI的问候/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2016/02/23/2016-02-23-在OSX上用automator实现VPN断线自动重连/" id="post_nav-older" class="next-content">
+        <a href="/2017/01/03/2017-01-03-python用队列实现多线程间的通信/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
