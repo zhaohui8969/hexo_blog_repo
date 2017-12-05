@@ -3,6 +3,35 @@
   
     
     <entry>
+      <title><![CDATA[调整MySQL最大连接数上限]]></title>
+      <url>/2017/12/05/2017-12-05-%E8%B0%83%E6%95%B4MySQL%E6%9C%80%E5%A4%A7%E8%BF%9E%E6%8E%A5%E6%95%B0%E4%B8%8A%E9%99%90/</url>
+      <content type="html"><![CDATA[<p>在项目中碰到了MySQL数据库连接限制的问题，导致项目中数据库访问出现问题：</p>
+<pre><code>django.db.utils.OperationalError: (1040, &#39;Too many connections&#39;)
+</code></pre><p>查阅了相关资料，MySQL中有<code>max_connections</code>这么一个配置值，用来人为限制同时存在的最多客户端连接数，该数值配置过低会导致如上的问题，调高该数值可以解决。</p>
+<p>采取的调整策略，直接修改该值为1500：</p>
+<pre><code>set GLOBAL max_connections=1500;
+</code></pre><img src="/2017/12/05/2017-12-05-调整MySQL最大连接数上限/img01.png" title="img1">
+<p>相关参考资料：</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/14592729/django-mysql-too-many-connections" target="_blank" rel="noopener">Django mysql too many connections</a></li>
+<li><a href="https://stackoverflow.com/questions/3435673/using-django-orm-in-threads-and-avoiding-too-many-clients-exception-by-using-b" target="_blank" rel="noopener">Using Django ORM in threads and avoiding “too many clients” exception by using BoundedSemaphore</a></li>
+<li><a href="http://mg123.lofter.com/post/1a5f3e_996f838" target="_blank" rel="noopener">MySQL性能优化之max_connections配置参数浅析</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html" target="_blank" rel="noopener">5.1.5 Server System Variables</a></li>
+</ul>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> Django </tag>
+            
+            <tag> Mysql </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Vue的多套环境发布脚本]]></title>
       <url>/2017/11/28/2017-11-28-Vue%E7%9A%84%E5%A4%9A%E5%A5%97%E7%8E%AF%E5%A2%83%E5%8F%91%E5%B8%83%E8%84%9A%E6%9C%AC/</url>
       <content type="html"><![CDATA[<h2 id="需求来源"><a href="#需求来源" class="headerlink" title="需求来源"></a>需求来源</h2><p>项目需要部署多套环境来发布（测试、生产），对于项目而言目前只有代码中后台接口地址不同，要求项目在build的时候能根据需要build成不同后台接口的版本去发布，目前咱在项目里用到的是一种最简单的办法，针对不同的build需求，写不同的build脚本，以达到build出不同版本的目的。</p>

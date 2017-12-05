@@ -66,6 +66,63 @@
     <div class="outer">
       <section id="main">
   
+    <article id="post-2017-12-05-调整MySQL最大连接数上限" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/05/2017-12-05-调整MySQL最大连接数上限/" class="article-date">
+  <time datetime="2017-12-05T08:22:38.000Z" itemprop="datePublished">2017-12-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/05/2017-12-05-调整MySQL最大连接数上限/">调整MySQL最大连接数上限</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在项目中碰到了MySQL数据库连接限制的问题，导致项目中数据库访问出现问题：</p>
+<pre><code>django.db.utils.OperationalError: (1040, &#39;Too many connections&#39;)
+</code></pre><p>查阅了相关资料，MySQL中有<code>max_connections</code>这么一个配置值，用来人为限制同时存在的最多客户端连接数，该数值配置过低会导致如上的问题，调高该数值可以解决。</p>
+<p>采取的调整策略，直接修改该值为1500：</p>
+<pre><code>set GLOBAL max_connections=1500;
+</code></pre><img src="/2017/12/05/2017-12-05-调整MySQL最大连接数上限/img01.png" title="img1">
+<p>相关参考资料：</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/14592729/django-mysql-too-many-connections" target="_blank" rel="noopener">Django mysql too many connections</a></li>
+<li><a href="https://stackoverflow.com/questions/3435673/using-django-orm-in-threads-and-avoiding-too-many-clients-exception-by-using-b" target="_blank" rel="noopener">Using Django ORM in threads and avoiding “too many clients” exception by using BoundedSemaphore</a></li>
+<li><a href="http://mg123.lofter.com/post/1a5f3e_996f838" target="_blank" rel="noopener">MySQL性能优化之max_connections配置参数浅析</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html" target="_blank" rel="noopener">5.1.5 Server System Variables</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://blog.bigf00t.net/2017/12/05/2017-12-05-调整MySQL最大连接数上限/" data-id="cjatd610o0004na2rbubdqtbc" class="article-share-link">分享到</a>
+      
+
+      
+        <a href="https://blog.bigf00t.net/2017/12/05/2017-12-05-调整MySQL最大连接数上限/#disqus_thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/">Mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2017-11-28-Vue的多套环境发布脚本" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/11/28/2017-11-28-Vue的多套环境发布脚本/" class="article-date">
@@ -145,7 +202,7 @@ export let axiosIns = axios.create({
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://blog.bigf00t.net/2017/11/28/2017-11-28-Vue的多套环境发布脚本/" data-id="cjalucrsi0004tu2rcquyej8q" class="article-share-link">分享到</a>
+        <a data-url="https://blog.bigf00t.net/2017/11/28/2017-11-28-Vue的多套环境发布脚本/" data-id="cjatd610s0007na2r7ipbqkcf" class="article-share-link">分享到</a>
       
 
       
@@ -293,7 +350,7 @@ Process finished with exit code 0
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://blog.bigf00t.net/2017/01/03/2017-01-03-python用队列实现多线程间的通信/" data-id="cjalucrsf0003tu2rvcxn2gaa" class="article-share-link">分享到</a>
+        <a data-url="https://blog.bigf00t.net/2017/01/03/2017-01-03-python用队列实现多线程间的通信/" data-id="cjatd610q0005na2rbqq9fffq" class="article-share-link">分享到</a>
       
 
       
@@ -337,7 +394,7 @@ Process finished with exit code 0
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://blog.bigf00t.net/2016/12/28/2016-12-28-用supervisor来管理tcptun的多个策略/" data-id="cjalucrs80001tu2rl2509hek" class="article-share-link">分享到</a>
+        <a data-url="https://blog.bigf00t.net/2016/12/28/2016-12-28-用supervisor来管理tcptun的多个策略/" data-id="cjatd610m0003na2rk4say97i" class="article-share-link">分享到</a>
       
 
       
@@ -407,7 +464,7 @@ Process finished with exit code 0
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://blog.bigf00t.net/2016/11/22/2016-11-22-终端下来自FBI的问候/" data-id="cjalucrrz0000tu2rvkz4a9k0" class="article-share-link">分享到</a>
+        <a data-url="https://blog.bigf00t.net/2016/11/22/2016-11-22-终端下来自FBI的问候/" data-id="cjatd610h0001na2rz2fc365w" class="article-share-link">分享到</a>
       
 
       
@@ -519,7 +576,7 @@ def _download(self, url):
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://blog.bigf00t.net/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/" data-id="cjalucrtx000ptu2r7t5vos02" class="article-share-link">分享到</a>
+        <a data-url="https://blog.bigf00t.net/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/" data-id="cjatd610c0000na2rkb8ko1pz" class="article-share-link">分享到</a>
       
 
       
@@ -680,7 +737,7 @@ end run
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://blog.bigf00t.net/2016/02/23/2016-02-23-在OSX上用automator实现VPN断线自动重连/" data-id="cjalucrtv000otu2rb4jvsb1p" class="article-share-link">分享到</a>
+        <a data-url="https://blog.bigf00t.net/2016/02/23/2016-02-23-在OSX上用automator实现VPN断线自动重连/" data-id="cjatd610u0009na2rvurn5q8j" class="article-share-link">分享到</a>
       
 
       
@@ -708,7 +765,7 @@ end run
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Automator/">Automator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/">Bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/">Image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OSX/">OSX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/supervisor/">supervisor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tcptun/">tcptun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/恶搞/">恶搞</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贴吧/">贴吧</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Automator/">Automator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/">Bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/">Image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OSX/">OSX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/supervisor/">supervisor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tcptun/">tcptun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/恶搞/">恶搞</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贴吧/">贴吧</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -717,7 +774,7 @@ end run
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Automator/" style="font-size: 10px;">Automator</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/OSX/" style="font-size: 10px;">OSX</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/tcptun/" style="font-size: 10px;">tcptun</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/恶搞/" style="font-size: 10px;">恶搞</a> <a href="/tags/贴吧/" style="font-size: 10px;">贴吧</a>
+      <a href="/tags/Automator/" style="font-size: 10px;">Automator</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/OSX/" style="font-size: 10px;">OSX</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/tcptun/" style="font-size: 10px;">tcptun</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/恶搞/" style="font-size: 10px;">恶搞</a> <a href="/tags/贴吧/" style="font-size: 10px;">贴吧</a>
     </div>
   </div>
 
@@ -726,7 +783,7 @@ end run
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -736,6 +793,10 @@ end run
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/12/05/2017-12-05-调整MySQL最大连接数上限/">调整MySQL最大连接数上限</a>
+          </li>
         
           <li>
             <a href="/2017/11/28/2017-11-28-Vue的多套环境发布脚本/">Vue的多套环境发布脚本</a>
@@ -751,10 +812,6 @@ end run
         
           <li>
             <a href="/2016/11/22/2016-11-22-终端下来自FBI的问候/">终端下来自FBI的问候</a>
-          </li>
-        
-          <li>
-            <a href="/2016/04/23/2016-04-23-如何用Python快速撸出一个贴吧图片下载器/">如何用Python快速撸出一个贴吧图片下载器</a>
           </li>
         
       </ul>
